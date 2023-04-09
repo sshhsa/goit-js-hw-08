@@ -17,15 +17,13 @@ if (localStorage.getItem('feedback-form-state') !== null) {
 form.addEventListener('input', throttle(onFormInputEvents, 500));
 
 function onFormInputEvents(event) {
-  if (email.value !== '' || textarea.value !== '') {
-    localStorage.setItem(
-      'feedback-form-state',
-      JSON.stringify({
-        email: email.value,
-        message: textarea.value,
-      })
-    );
-  }
+  localStorage.setItem(
+    'feedback-form-state',
+    JSON.stringify({
+      email: email.value,
+      message: textarea.value,
+    })
+  );
 }
 
 button.addEventListener('click', onClickButonSubmit);
@@ -36,5 +34,13 @@ function onClickButonSubmit(event) {
   email.value = '';
   textarea.value = '';
 
-  console.log(localStorage.getItem('feedback-form-state'));
+  console.log(
+    localStorage.getItem(
+      'feedback-form-state',
+      JSON.stringify({
+        email: email.value,
+        message: textarea.value,
+      })
+    )
+  );
 }
