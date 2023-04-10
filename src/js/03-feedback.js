@@ -26,9 +26,9 @@ function onFormInputEvents(event) {
   );
 }
 
-button.addEventListener('click', onClickButonSubmit);
+form.addEventListener('submit', onClickButtonSubmit);
 
-function onClickButonSubmit(event) {
+function onClickButtonSubmit(event) {
   event.preventDefault();
 
   email.value = '';
@@ -43,4 +43,6 @@ function onClickButonSubmit(event) {
       })
     )
   );
+
+  localStorage.clear();
 }
